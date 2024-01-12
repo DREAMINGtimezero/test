@@ -1,0 +1,43 @@
+@startuml 
+  
+package "Code" {  
+  package "Functional Module" {  
+    class "Hospital Management Module" {  
+      - hospitalInfo  
+      + createHospitalObject()  
+      + getHospitalInfo()  
+      + setHospitalInfo()  
+      + assignPatientsToHospital()  
+      + getAssociatedPatients()  
+    }  
+  
+    class "Patient Management Module" {  
+      - patientInfo  
+      + createPatientObject()  
+      + getPatientInfo()  
+      + setPatientInfo()  
+    }  
+  
+    class "Hospital-Patient Association Module" {  
+      + establishAssociation()  
+    }  
+  }  
+  
+  package "Database Module" {  
+    class "Database Module" {  
+      + connectToDatabase()  
+      + saveHospitalInfoToDatabase()  
+      + savePatientInfoToDatabase()  
+      + retrieveHospitalInfoFromDatabase()  
+      + retrievePatientInfoFromDatabase()  
+      + updateHospitalInfoInDatabase()  
+      + updatePatientInfoInDatabase()  
+      + deleteHospitalInfoFromDatabase()  
+      + deletePatientInfoFromDatabase()  
+    }  
+  }  
+  
+  "Functional Module" --> "Database Module" : Uses  
+}  
+  
+@enduml  
